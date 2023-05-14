@@ -15,9 +15,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Box, IconButton, Snackbar } from "@mui/material";
-
-import { API_URL } from "./components/constants";
-
+import { API_URL, TRAININGS_URL } from "./components/constants";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import EventIcon from "@mui/icons-material/Event";
@@ -108,7 +106,7 @@ export default function App() {
 
   // Get trainings
   const getTrainings = () => {
-    fetch("https://traineeapp.azurewebsites.net/gettrainings")
+    fetch(TRAININGS_URL)
       .then((response) => {
         if (response.ok) return response.json();
         else alert("Something went wrong in GET request");
@@ -141,7 +139,7 @@ export default function App() {
     }
   };
 
-  // Add training to customer
+  // Add training to a customer
   const addTraining = (customer, newTraining) => {
     const customerNewTraining = {
       ...newTraining,

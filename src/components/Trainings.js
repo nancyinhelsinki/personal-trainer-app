@@ -1,19 +1,22 @@
 import React from "react";
+
 import {
   DataGrid,
   GridToolbarContainer,
   GridToolbarExport,
 } from "@mui/x-data-grid";
+
 import DeleteIcon from "@mui/icons-material/Delete";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 import SearchIcon from "@mui/icons-material/Search";
+
 import {
   Paper,
   Box,
   InputAdornment,
   TextField,
   IconButton,
+  Stack,
+  Typography,
 } from "@mui/material";
 import dayjs from "dayjs";
 
@@ -57,6 +60,7 @@ function Trainings({ trainings, deleteTraining }) {
     },
   ];
 
+  // For CSV Export
   function CustomToolbar() {
     return (
       <GridToolbarContainer>
@@ -64,7 +68,7 @@ function Trainings({ trainings, deleteTraining }) {
       </GridToolbarContainer>
     );
   }
-
+  //
   return (
     <>
       <Paper>

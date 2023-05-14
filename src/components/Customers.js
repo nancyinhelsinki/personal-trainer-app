@@ -1,20 +1,22 @@
-import React, { useState } from "react";
 import {
   DataGrid,
   GridToolbarContainer,
   GridToolbarExport,
 } from "@mui/x-data-grid";
+
 import DeleteIcon from "@mui/icons-material/Delete";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 import SearchIcon from "@mui/icons-material/Search";
+
 import {
   Paper,
   Box,
   InputAdornment,
   TextField,
   IconButton,
+  Typography,
+  Stack,
 } from "@mui/material";
+
 import AddCustomer from "./AddCustomer";
 import AddTraining from "./AddTraining";
 import EditCustomer from "./EditCustomer";
@@ -26,8 +28,6 @@ function Customers({
   deleteCustomer,
   editCustomer,
 }) {
-  //const [search, setSearch] = useState("");
-
   const columns = [
     {
       field: "actions",
@@ -66,13 +66,12 @@ function Customers({
     { field: "phone", headerName: "Phone", width: 130 },
   ];
 
-  // const searchBar () => {}
-
   const getRowId = (url) => {
     //example url: http://traineeapp.azurewebsites.net/api/trainings/13756
     return url.substring(url.lastIndexOf("/") + 1);
   };
 
+  // For CSV export
   function CustomToolbar() {
     return (
       <GridToolbarContainer>
@@ -80,7 +79,7 @@ function Customers({
       </GridToolbarContainer>
     );
   }
-
+  //
   return (
     <>
       <AddCustomer addCustomer={addCustomer} />
