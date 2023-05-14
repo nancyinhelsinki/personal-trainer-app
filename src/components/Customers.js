@@ -78,27 +78,17 @@ function Customers({
   //
   return (
     <>
-      <AddCustomer addCustomer={addCustomer} />
       <Paper>
         <Box
           display={"flex"}
           justifyContent={"space-between"}
           flexDirection={"row"}
+          paddingBottom={1}
         >
           <Typography align="left" variant="h6">
             Customers
           </Typography>
-          <TextField
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-            placeholder="Search"
-            variant="standard"
-          ></TextField>{" "}
+          <AddCustomer addCustomer={addCustomer} />
         </Box>
         <DataGrid
           getRowId={(row) => getIdFromUrl(row.links[0].href)}
