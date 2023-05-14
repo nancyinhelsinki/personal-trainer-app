@@ -19,10 +19,12 @@ import { API_URL, TRAININGS_URL } from "./components/constants";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import EventIcon from "@mui/icons-material/Event";
+import BarChartIcon from "@mui/icons-material/BarChart";
 
 import Customers from "./components/Customers";
 import Trainings from "./components/Trainings";
 import TrainingCalendar from "./components/TrainingCalendar";
+import Dashboard from "./components/Dashboard";
 import { getIdFromUrl } from "./utils/utils";
 
 const drawerWidth = 240;
@@ -241,6 +243,12 @@ export default function App() {
                 <ListItemText primary={"Calendar"} />
               </ListItemButton>
             </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton onClick={() => setPage("Dashboard")}>
+                <ListItemIcon>{<BarChartIcon />}</ListItemIcon>
+                <ListItemText primary={"Dashboard"} />
+              </ListItemButton>
+            </ListItem>
           </List>
         </Drawer>
         <Main open={open}>
@@ -267,6 +275,11 @@ export default function App() {
           {page == "Calendar" && (
             <Box padding={4}>
               <TrainingCalendar trainings={trainings} />
+            </Box>
+          )}
+          {page == "Dashboard" && (
+            <Box padding={4}>
+              <Dashboard trainings={trainings} />
             </Box>
           )}
         </Main>
