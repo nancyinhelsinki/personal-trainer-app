@@ -23,6 +23,7 @@ import EventIcon from "@mui/icons-material/Event";
 import Customers from "./components/Customers";
 import Trainings from "./components/Trainings";
 import TrainingCalendar from "./components/TrainingCalendar";
+import { getIdFromUrl } from "./utils/utils";
 
 const drawerWidth = 240;
 
@@ -73,7 +74,7 @@ export default function App() {
   //  Edit customer
   const editCustomer = (customer) => {
     console.log(customer);
-    fetch(customer.links[0].href, {
+    fetch(API_URL + "customers/" + getIdFromUrl(customer.links[0].href), {
       method: "PUT",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(customer),
@@ -91,7 +92,9 @@ export default function App() {
   // Delete customer
   const deleteCustomer = (customer) => {
     if (window.confirm("Are you sure?")) {
-      fetch(customer.links[0].href, { method: "DELETE" })
+      fetch(API_URL + "customers/" + getIdFromUrl(customer.links[0].href), {
+        method: "DELETE",
+      })
         .then((response) => {
           if (response.ok) {
             snackbarFeedback("Customer deleted successfully!");
@@ -125,8 +128,11 @@ export default function App() {
 
   // Delete training
   const deleteTraining = (training) => {
+    console.log(training);
     if (window.confirm("Are you sure?")) {
-      fetch(training.links[0].href, { method: "DELETE" })
+      fetch(API_URL + "trainings/" + training.id, {
+        method: "DELETE",
+      })
         .then((response) => {
           if (response.ok) {
             snackbarFeedback("Training deleted successfully!");

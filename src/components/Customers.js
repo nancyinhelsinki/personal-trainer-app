@@ -20,6 +20,7 @@ import {
 import AddCustomer from "./AddCustomer";
 import AddTraining from "./AddTraining";
 import EditCustomer from "./EditCustomer";
+import { getIdFromUrl } from "../utils/utils";
 
 function Customers({
   customers,
@@ -66,11 +67,6 @@ function Customers({
     { field: "phone", headerName: "Phone", width: 130 },
   ];
 
-  const getRowId = (url) => {
-    //example url: http://traineeapp.azurewebsites.net/api/trainings/13756
-    return url.substring(url.lastIndexOf("/") + 1);
-  };
-
   // For CSV export
   function CustomToolbar() {
     return (
@@ -105,7 +101,7 @@ function Customers({
           ></TextField>{" "}
         </Box>
         <DataGrid
-          getRowId={(row) => getRowId(row.links[0].href)}
+          getRowId={(row) => getIdFromUrl(row.links[0].href)}
           rows={customers}
           columns={columns}
           editMode="row"
