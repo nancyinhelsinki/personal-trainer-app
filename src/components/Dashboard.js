@@ -21,7 +21,7 @@ function Dashboard({ trainings }) {
   );
 
   return (
-    <BarChart width={900} height={600} data={activitiesSumByDuration}>
+    <BarChart width={700} height={500} data={activitiesSumByDuration}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="activity" />
       <YAxis
