@@ -7,17 +7,8 @@ import {
 } from "@mui/x-data-grid";
 
 import DeleteIcon from "@mui/icons-material/Delete";
-import SearchIcon from "@mui/icons-material/Search";
 
-import {
-  Paper,
-  Box,
-  InputAdornment,
-  TextField,
-  IconButton,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Paper, Box, IconButton, Stack, Typography } from "@mui/material";
 import dayjs from "dayjs";
 
 function Trainings({ trainings, deleteTraining }) {
@@ -80,17 +71,6 @@ function Trainings({ trainings, deleteTraining }) {
           <Typography align="left" variant="h6">
             Trainings
           </Typography>
-          <TextField
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-            placeholder="Search"
-            variant="standard"
-          ></TextField>{" "}
         </Box>
         <DataGrid
           getRowId={(row) => row.id}

@@ -5,17 +5,8 @@ import {
 } from "@mui/x-data-grid";
 
 import DeleteIcon from "@mui/icons-material/Delete";
-import SearchIcon from "@mui/icons-material/Search";
 
-import {
-  Paper,
-  Box,
-  InputAdornment,
-  TextField,
-  IconButton,
-  Typography,
-  Stack,
-} from "@mui/material";
+import { Paper, Box, IconButton, Typography, Stack } from "@mui/material";
 
 import AddCustomer from "./AddCustomer";
 import AddTraining from "./AddTraining";
@@ -34,7 +25,7 @@ function Customers({
       field: "actions",
       headerName: "Actions",
       sortable: false,
-      width: 260,
+      width: 250,
       renderCell: (params) => (
         <Stack direction="row" spacing={2}>
           <IconButton
@@ -53,16 +44,16 @@ function Customers({
     {
       field: "firstname",
       headerName: "First Name",
-      width: 160,
+      width: 130,
     },
-    { field: "lastname", headerName: "Last Name", width: 160 },
+    { field: "lastname", headerName: "Last Name", width: 130 },
     {
       field: "streetaddress",
       headerName: "Address",
-      width: 180,
+      width: 160,
     },
     { field: "postcode", headerName: "Post Code", width: 100 },
-    { field: "city", headerName: "City", width: 120 },
+    { field: "city", headerName: "City", width: 100 },
     { field: "email", headerName: "Email", width: 160 },
     { field: "phone", headerName: "Phone", width: 130 },
   ];
