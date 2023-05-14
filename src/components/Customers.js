@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { DataGrid } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridToolbarContainer,
+  GridToolbarExport,
+} from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -48,17 +52,17 @@ function Customers({
     {
       field: "firstname",
       headerName: "First Name",
-      width: 100,
+      width: 160,
     },
-    { field: "lastname", headerName: "Last Name", width: 100 },
+    { field: "lastname", headerName: "Last Name", width: 160 },
     {
       field: "streetaddress",
       headerName: "Address",
-      width: 160,
+      width: 180,
     },
-    { field: "postcode", headerName: "Post Code", width: 90 },
-    { field: "city", headerName: "City", width: 90 },
-    { field: "email", headerName: "Email", width: 130 },
+    { field: "postcode", headerName: "Post Code", width: 100 },
+    { field: "city", headerName: "City", width: 120 },
+    { field: "email", headerName: "Email", width: 160 },
     { field: "phone", headerName: "Phone", width: 130 },
   ];
 
@@ -68,6 +72,14 @@ function Customers({
     //example url: http://traineeapp.azurewebsites.net/api/trainings/13756
     return url.substring(url.lastIndexOf("/") + 1);
   };
+
+  function CustomToolbar() {
+    return (
+      <GridToolbarContainer>
+        <GridToolbarExport printOptions={{ disableToolbarButton: true }} />
+      </GridToolbarContainer>
+    );
+  }
 
   return (
     <>
@@ -104,6 +116,9 @@ function Customers({
             },
           }}
           pageSizeOptions={[5, 10]}
+          slots={{
+            toolbar: CustomToolbar,
+          }}
         />
       </Paper>
     </>

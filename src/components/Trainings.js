@@ -1,5 +1,9 @@
-import React, { useState } from "react";
-import { DataGrid } from "@mui/x-data-grid";
+import React from "react";
+import {
+  DataGrid,
+  GridToolbarContainer,
+  GridToolbarExport,
+} from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -53,10 +57,13 @@ function Trainings({ trainings, deleteTraining }) {
     },
   ];
 
-  const getRowId = (url) => {
-    //example url: http://traineeapp.azurewebsites.net/api/trainings/13756
-    return url.substring(url.lastIndexOf("/") + 1);
-  };
+  function CustomToolbar() {
+    return (
+      <GridToolbarContainer>
+        <GridToolbarExport printOptions={{ disableToolbarButton: true }} />
+      </GridToolbarContainer>
+    );
+  }
 
   return (
     <>
@@ -91,6 +98,9 @@ function Trainings({ trainings, deleteTraining }) {
             },
           }}
           pageSizeOptions={[5, 10]}
+          slots={{
+            toolbar: CustomToolbar,
+          }}
         />
       </Paper>
     </>
