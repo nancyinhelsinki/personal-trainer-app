@@ -25,7 +25,7 @@ function TrainingCalendar({ trainings }) {
         events={myEventsList}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 900, width: 1300 }}
+        style={{ height: 600, width: 800 }}
       />
     </div>
   );
