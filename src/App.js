@@ -226,25 +226,37 @@ export default function App() {
           <Divider />
           <List>
             <ListItem disablePadding>
-              <ListItemButton onClick={() => setPage("Customers")}>
+              <ListItemButton
+                selected={page === "Customers"}
+                onClick={() => setPage("Customers")}
+              >
                 <ListItemIcon>{<AccountBoxIcon />}</ListItemIcon>
                 <ListItemText primary={"Customers"} />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton onClick={() => setPage("Trainings")}>
+              <ListItemButton
+                selected={page === "Trainings"}
+                onClick={() => setPage("Trainings")}
+              >
                 <ListItemIcon>{<DirectionsRunIcon />}</ListItemIcon>
                 <ListItemText primary={"Trainings"} />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton onClick={() => setPage("Calendar")}>
+              <ListItemButton
+                selected={page === "Calendar"}
+                onClick={() => setPage("Calendar")}
+              >
                 <ListItemIcon>{<EventIcon />}</ListItemIcon>
                 <ListItemText primary={"Calendar"} />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton onClick={() => setPage("Dashboard")}>
+              <ListItemButton
+                selected={page === "Dashboard"}
+                onClick={() => setPage("Dashboard")}
+              >
                 <ListItemIcon>{<BarChartIcon />}</ListItemIcon>
                 <ListItemText primary={"Dashboard"} />
               </ListItemButton>
